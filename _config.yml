@@ -1,0 +1,40 @@
+# Site settings
+title: DuckDB Foundation
+email: foundation@duckdb.org
+description: >-
+  The independent non-profit DuckDB Foundation safeguards the long-term
+  maintenance and development of DuckDB.
+baseurl: ""
+url: "https://duckdb.foundation"
+
+livereload: true
+incremental: false
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  smart_quotes: ["apos", "apos", "quot", "quot"]
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+sass:
+  style: compressed
+  load_paths:
+    - _sass
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/foundation.svg
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - .git

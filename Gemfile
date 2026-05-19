@@ -1,0 +1,10 @@
+source "https://rubygems.org"
+
+gem "jekyll", "4.4.1"
+gem "jekyll-sass-converter", "3.1.0"
+gem "jekyll-seo-tag", "2.9.0"
+gem "jekyll-sitemap", "1.4.0"
+gem "jekyll-redirect-from", "0.16.0"
+gem "kramdown", "2.5.2"
+gem "kramdown-parser-gfm", "1.1.0"
+gem "webrick", "~> 1.9"

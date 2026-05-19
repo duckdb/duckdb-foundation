@@ -1,0 +1,128 @@
+@use 'sass:color';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+/** FAQ **/
+body.faq,
+.frequentlyaskedquestions,
+body.documentation main .wrap.frequentlyaskedquestions{
+	h3{
+		@include title-3;
+		cursor: pointer;
+		position: relative;
+		margin: 0;
+		padding-right: 55px;
+		&::after{
+			content: " ";
+			background-color: var(--doc-codebox-button-background-color, #E6E6E6);
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			position: absolute;
+			right: 0px;
+			top: -5px;
+			cursor: pointer;
+		}
+		&::before{
+			content: " ";
+			mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' viewBox='0 0 14 14'%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.35' d='m2.102 5.05 4.9 4.9 4.9-4.9'/%3E%3C/svg%3E");
+			mask-size: contain;
+			mask-position: center center;
+			mask-repeat: no-repeat;
+			background-color: var(--main-text-primary-color, #0D0D0D);
+			width: 14px;
+			height: 14px;
+			position: absolute;
+			right: 8px;
+			top: 3px;
+			z-index: 1;
+			-webkit-transition: -webkit-transform .3s;
+			transition: -webkit-transform .3s;
+			-o-transition: transform .3s;
+			transition: transform .3s;
+			transition: transform .3s, -webkit-transform .3s;
+			cursor: pointer;
+		}
+		a:hover{
+			background-color: transparent;
+		}
+	}
+	.qa-wrap{
+		padding: 20px;
+		background: var(--doc-codebox-background-color, #F2F2F2);
+		-webkit-transition: background-color .3s;
+		-o-transition: background-color .3s;
+		transition: background-color .3s;
+		margin-bottom: 10px;
+		border-radius: var(--border-radius-box);
+		border: 1px solid transparent;
+		-webkit-transition: border .3s;
+		-o-transition: border .3s;
+		transition: border .3s;
+		&.open h3::before{
+			-webkit-transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+					transform: rotate(180deg);
+		}
+		&:hover{
+			border-color: var(--doc-codebox-border-color);
+		}
+	}
+	.answer{
+		display: none;
+		max-width: calc(100% - 55px);
+		padding-top: 20px;
+		>p:first-child{
+			margin-top: 0;
+		}
+		a{
+			color: inherit;
+			text-decoration: underline;
+			-webkit-transition: color .3s;
+			-o-transition: color .3s;
+			transition: color .3s;
+			&:hover{
+				color: $blue;
+				cursor: pointer;
+			}
+		}
+	}
+	.headlinebar{
+		margin-bottom: 40px;
+	}
+}
+
+body.faq,
+section.faq{
+	.frequentlyaskedquestions{
+		max-width: 750px;
+		margin: 0 auto;
+	}
+	.qa-wrap{
+		h3{
+			@include title-3;
+			a{
+				color: var(--main-text-primary-color, #0D0D0D);
+			}
+		}
+		.answer{
+			p:last-of-type{
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+body.faq{
+	h2{
+		@include headline-1();
+		margin-bottom: 20px;
+		margin-top: 40px;
+	}
+	h2:first-of-type{
+		margin-top: 0;
+	}
+	h2 a{
+		color: var(--main-text-primary-color, #0D0D0D);
+	}
+}

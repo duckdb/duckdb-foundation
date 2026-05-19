@@ -1,0 +1,173 @@
+@use 'sass:color';
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+/* SYNTAX HIGHLIGHTING COLORS */
+
+.language-batch code:before {
+	content: '$ ';
+}
+
+.language-plsql code:before {
+	content: 'D ';
+}
+
+// <light mode>
+.highlight {
+	// background of syntax highlight boxes
+	background: var(--doc-codebox-background-color, #f7f7f7);
+
+	// foreground
+	:is(.g, .l, .no, .nd, .nx, .w, .nn, .n, .vg),
+	// properties, e.g. SET **threads** = 8;
+	:is(.py),
+	// class names
+	:is(.nc, .nv, .nl),
+	// punctuation
+	:is(.p, .x),
+	// operators
+	:is(.o, .ow)
+	{
+		color: #0d0d0d;
+	}
+
+	// comments
+	:is(.c, .ch, .cm, .cp, .cpf, .cs, .c1){
+		color: #626262;
+		font-family: $fontMonoItalic;
+	}
+
+	// keywords
+	:is(.k, .kc, .kd, .kn, .kr, .kt, .kv, .gs),
+	// type names
+	:is(.nb, .bp, .vcb)
+	{
+		color: #005fff;
+		font-family: $fontMonoBold;
+	}
+
+	// strings
+	:is(.ld, .s, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss, .dl)
+	{
+		color: #875f00;
+	}
+
+	// functions
+	:is(.nf, .nt, .na)
+	{
+		color: #008700;
+		font-family: $fontMonoBold;
+	}
+
+	// numbers
+	:is(.m, .mf, .mh, .mi, .mo, .il)
+	{
+		color: #d700af;
+	}
+
+	// prompt
+	:is(.gp){
+		color: #e15300;
+		font-family: $fontMonoBold;
+	}
+
+	// attributes (used for placeholders within angle brackets)
+	:is(.ge)
+	{
+		color: #d70000;
+		font-family: $fontMonoItalic;
+	}
+
+	:is(.gs)
+	{
+		text-decoration: underline;
+	}
+}
+
+th .k {
+	color: #ffffff;
+	font-family: $fontMonoBold;
+}
+
+.landing .highlight{
+	padding: 15px;
+	border: 1px solid var(--doc-codebox-border-color, #d9d9d9);
+}
+
+// </light mode>
+
+// <dark mode>
+html.darkmode, .dark {
+	// keywords in table headers
+	th .k {
+		color: #ffffff;
+		font-family: $fontMonoBold;
+	}
+
+	.highlight {
+		// background of syntax highlight boxes
+		background: var(--doc-codebox-background-color, #141414);
+
+		// foreground
+		:is(.g, .l, .no, .nd, .nx, .w, .nn, .n, .vg),
+		// properties, e.g. SET **threads** = 8;
+		:is(.py),
+		// class names
+		:is(.nc, .nv, .nl),
+		// punctuation
+		:is(.p, .x),
+		// operators
+		:is(.o, .ow)
+		{
+			color: #f2f2f2;
+		}
+
+		// comments
+		:is(.c, .ch, .cm, .cp, .cpf, .cs, .c1){
+			color: #888888;
+			font-family: $fontMonoItalic;
+		}
+
+		// keywords
+		:is(.k, .kc, .kd, .kn, .kr, .kt, .kv, .gs),
+		// type names
+		:is(.nb, .bp, .vcb)
+		{
+			color: #5fafff;
+			font-family: $fontMonoBold;
+		}
+
+		// strings
+		:is(.ld, .s, .sb, .sc, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss, .dl)
+		{
+			color: #ffd700;
+		}
+
+		// functions
+		:is(.nf, .nt, .na)
+		{
+			color: #00af00;
+			font-family: $fontMonoBold;
+		}
+
+		// numbers
+		:is(.m, .mf, .mh, .mi, .mo, .il)
+		{
+			color: #ff00ff;
+		}
+
+		// prompt
+		:is(.gp){
+			color: #e15300;
+			font-family: $fontMonoBold;
+		}
+
+		// attributes (used for placeholders within angle brackets)
+		:is(.ge)
+		{
+			color: #ff6a6a;
+			font-family: $fontMonoItalic;
+		}
+	}
+}
+// </dark mode>

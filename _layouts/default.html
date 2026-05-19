@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+	{% if page.title == "DuckDB Foundation" %}
+	<title>{{ page.title }}</title>
+	{% else %}
+	<title>{{ page.title }} – DuckDB Foundation</title>
+	{% endif %}
+
+	<link rel="stylesheet" href="{{ site.baseurl }}/css/main.css?{{ site.time | date: '%s' }}">
+	<link rel="preload" href="{{ site.baseurl }}/css/webfont/SuisseIntl-Regular-WebXL.woff2" as="font" type="font/woff2" crossorigin>
+
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/images/favicon/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ site.baseurl }}/images/favicon/apple-touch-icon.png">
+	<link rel="shortcut icon" href="{{ site.baseurl }}/images/favicon/favicon.ico">
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
+	{% seo title=false %}
+
+	<script>
+		(function () {
+			var stored = localStorage.getItem('color-mode');
+			var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (stored === 'dark' || (!stored && prefersDark)) {
+				document.documentElement.classList.add('darkmode');
+			}
+		})();
+	</script>
+</head>
+<body class="layout_default{% if page.body_class %} {{ page.body_class }}{% endif %}">
+
+	{% include header.html %}
+
+	<main class="{% if page.max_page_width %} w-{{page.max_page_width}}{% endif %}">
+		<div class="wrap">
+			<div id="main_content_wrap">
+				<div class="content">
+					{{ content }}
+				</div>
+			</div>
+		</div>
+	</main>
+
+	{% include footer.html %}
+
+	<script src="{{ site.baseurl }}/js/jquery-3.5.1.min.js" defer></script>
+	<script src="{{ site.baseurl }}/js/script.js?{{ site.time | date: '%s' }}" defer></script>
+</body>
+</html>
