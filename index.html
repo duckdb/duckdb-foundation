@@ -60,8 +60,8 @@ max_page_width: large
 		<p class="section-lede">Current foundation supporters that have chosen to be publicly named.</p>
 
 		{% if site.data.supporters.gold %}
-		<h3 id="gold-supporters">Gold Supporters</h3>
 		<div class="supporterboard gold">
+			<h3 id="gold-supporters">Gold Supporters</h3>
 			<ul>
 				{% for supporter in site.data.supporters.gold %}
 				<li><a href="{{ supporter.url }}"><img src="{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}" alt="{{ supporter.name }}"></a></li>
@@ -71,8 +71,8 @@ max_page_width: large
 		{% endif %}
 
 		{% if site.data.supporters.silver %}
-		<h3 id="silver-supporters">Silver Supporters</h3>
 		<div class="supporterboard silver">
+			<h3 id="silver-supporters">Silver Supporters</h3>
 			<ul>
 				{% for supporter in site.data.supporters.silver %}
 				<li><a href="{{ supporter.url }}"><img src="{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}" alt="{{ supporter.name }}"></a></li>
@@ -82,8 +82,8 @@ max_page_width: large
 		{% endif %}
 
 		{% if site.data.supporters.technical %}
-		<h3 id="technical-sponsors">Technical Sponsors</h3>
 		<div class="supporterboard technical">
+			<h3 id="technical-sponsors">Technical Sponsors</h3>
 			<ul>
 				{% for supporter in site.data.supporters.technical %}
 				<li><a href="{{ supporter.url }}"><img src="{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}" alt="{{ supporter.name }}"></a></li>
@@ -93,8 +93,8 @@ max_page_width: large
 		{% endif %}
 
 		{% if site.data.supporters.oss %}
-		<h3 id="open-source-grants">Open-Source Grants</h3>
 		<div class="supporterboard technical">
+			<h3 id="open-source-grants">Open-Source Grants</h3>
 			<ul>
 				{% for supporter in site.data.supporters.oss %}
 				<li><a href="{{ supporter.url }}"><img src="{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}" alt="{{ supporter.name }}"></a></li>
