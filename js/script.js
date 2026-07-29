@@ -347,6 +347,7 @@ $(document).ready(function(){
 
     
     // FAQs
+	$('.qa-wrap h3').append('<span class="faq-icon"><svg class="icon"><use href="#chevron-down"></use></svg></span>');
 	$('.qa-wrap').click(function(event) {
 		var $qaWrap = $(this);
 		if ($(event.target).is('h3') || $(event.target).closest('h3').length) {
