@@ -147,7 +147,7 @@ html.darkmode body{
 	}
 	
 	/** FOUNDATION **/
-	&.foundation section.supporters .supporterboard ul li img{
+	&.foundation .foundation-supporters .supporterboard > ul li img{
 		filter: invert(1);
 	}
 	
