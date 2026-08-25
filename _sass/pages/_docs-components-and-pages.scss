@@ -91,7 +91,7 @@ body.documentation {
 
         &.lts span,
         &.lts .icon {
-            color: var(--doc-box-tip, #00C770);
+            color: #00C770;
         }
 
         &.preview span,
@@ -404,6 +404,7 @@ body.documentation {
         justify-content: space-between;
         margin-top: 8em;
         width: 100%;
+        color: var(--main-text-secondary-color, #666);
 
         h5 {
             @include title-3();
@@ -433,6 +434,7 @@ body.documentation {
             align-items: center;
             gap: 6px;
             text-decoration: none;
+            color: var(--main-text-secondary-color, #666);
 
             svg.icon {
                 width: 16px;
@@ -557,9 +559,27 @@ body.documentation {
         justify-content: center;
 
         img {
-            max-width: 24px;
-            max-height: 24px;
-            margin: 0 !important;
+            display: none;
+        }
+
+        > svg.icon {
+            width: 22px;
+            height: 22px;
+            color: var(--main-text-primary-color, #0D0D0D);
+            stroke-width: 1.8;
+        }
+
+        &:has(img)::before {
+            content: "";
+            width: 24px;
+            height: 24px;
+            background-color: var(--main-text-primary-color, #0D0D0D);
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center center;
+            mask-position: center center;
         }
     }
     
