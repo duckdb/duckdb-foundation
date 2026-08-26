@@ -11,11 +11,7 @@
 	body.documentation .sidenavigation {
 		width: 350px;
 	}
-	
-	.hero-bg .hideonbigscreens{
-		display: none;
-	}
-	
+
 }
 
 @media only screen and (max-width: 1200px) {
@@ -112,11 +108,7 @@
 	section.upcoming-events .postpreview,
 	section.blog .postpreview,
 	.post-list .newstiles .postpreview {
-		width: calc(50% - 10px);
-
-		.postdetails {
-			padding: 20px;
-		}
+		width: calc((100% - 32px) / 2);
 	}
 	footer .sitefooter .footercontent .footernavigation{
 		flex-wrap: wrap;
@@ -228,6 +220,8 @@
 				background: none;
 				transform: none;
 				li a{
+					width: -webkit-fit-content;
+					width: fit-content;
 					padding: 10px 15px;
 				}
 			}
@@ -238,6 +232,9 @@
 	}
 	header .headerline .headercontent .landingmenu nav > div.mobile-only{
 		display: block;
+	}
+	header .headerline .headercontent .landingmenu nav .search_icon{
+		height: 48px;
 	}
 	body.landing header .headerline .headercontent .landingmenu nav .search_icon{
 		display: none;
@@ -352,7 +349,7 @@
 	.everywhere-tiles .everywherepreview.postpreview,
 	main.main-library .recentposts .newstileswrap .postpreview,
 	main.main-science .recentposts .newstileswrap .postpreview {
-		width: calc(50% - 10px);
+		width: calc(50% - 16px);
 	}
 	
 	.notonmobile {
@@ -449,7 +446,7 @@
 		}
 
 		.copy-markdown {
-			order: 2;
+			display: none;
 		}
 
 		.titlebar {
@@ -483,8 +480,23 @@
 		height: 55px;
 	}
 
+	main.inactive::before {
+		top: 54px;
+	}
+
+	header .headerline .headercontent .landingmenu nav:not(.mobile) {
+		top: 70px;
+	}
+
+	header .headerline .headercontent .options button.mode,
+	header .headerline .headercontent .landingmenu .hamburger{
+		width: 33px;
+		height: 33px;
+	}
+
 	#duckdb_logo,
 	#ducklake_logo,
+	header .duckdblabs_logo,
 	#duckdblabs_logo,
 	#duckcon_logo,
 	#duckcon7_logo,
@@ -500,6 +512,7 @@
 		width: 121px;
 	}
 
+	header .duckdblabs_logo,
 	#duckdblabs_logo{
 		width: 122px;
 	}
@@ -566,6 +579,13 @@
 	
 
 	
+	section.speakers .postpreview,
+	section.upcoming-events .postpreview,
+	section.blog .postpreview,
+	.post-list .newstiles .postpreview {
+		width: 100%;
+	}
+
 	p.system {
 		display: inline-grid;
 	}
@@ -639,6 +659,7 @@
 	}
 
 	section.blog .newstileswrap{
+		margin-top: 42px;
 		margin-bottom: 32px;
 	}
 
@@ -700,6 +721,11 @@
 		margin-bottom: 10px;
 	}
 
+	section.blog .newstileswrap,
+	section.upcoming-events .newstileswrap {
+		row-gap: 32px;
+	}
+
 	.library-tiles .librarypreview.postpreview,
 	.everywhere-tiles .everywherepreview.postpreview {
 		display: flex;
@@ -739,28 +765,22 @@
 			flex-direction: column;
 			justify-content: center;
 			min-width: 0;
-			.tags {
-				display: none;
-			}
 			h3 {
-				font-size: 16px;
+				font-size: var(--type-title-3, 16px);
 				min-height: unset;
-				margin-bottom: 8px;
 				display: -webkit-box;
 				-webkit-line-clamp: 3;
 				line-clamp: 3;
 				-webkit-box-orient: vertical;
 				overflow: hidden;
 			}
-			.meta {
-				margin-top: 0px;
-				column-gap: 16px;
+			h3 + .meta {
+				margin-top: 8px;
+			}
+			.byline {
+				margin-top: 8px;
 			}
 		}
-	}
-	.everywhere-tiles .everywherepreview.postpreview .postdetails .tags {
-		display: flex;
-		margin-bottom: 4px;
 	}
 
 	.newswrap .postwrap .postcontent .recentposts{
@@ -838,16 +858,13 @@
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
 	body.landing section {
-		padding: 55px 15px;
+		padding: 36px 15px;
 	}
-	body.landing section.welcome{
-		padding: 120px 15px 55px 15px;
+
+	body.landing section.welcome {
+		padding: 36px 15px 55px 15px;
 	}
-	
-	body.landing section.welcome .hero-protocol-boxes{
-		margin-top: 140px;
-	}
-	
+
 	body.landing .boxlayout .box:last-child {
 		margin-bottom: 0;
 	}

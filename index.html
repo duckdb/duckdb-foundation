@@ -8,140 +8,179 @@ max_page_width: large
 
 <section class="foundation-hero">
 	<div class="wrap">
-		<h1 class="display-2">DuckDB Foundation</h1>
-		<p class="hero-subtitle">
-			The independent non-profit DuckDB Foundation safeguards the long-term maintenance
-			and development of DuckDB. The foundation holds most of the intellectual property
-			of the project and is funded by charitable donations &mdash; all collected funds go
-			directly to DuckDB development.
-		</p>
+		<h1 class="display-2">DuckDB is free and open source for the community&rsquo;s benefit</h1>
 		<div class="hero-buttons">
-			<a class="button yellow arrow-right" href="{{ site.baseurl }}/contact/">Become a supporter<svg class="icon"><use href="#arrow-right"></use></svg></a>
-			<a class="button transparent arrow-down" href="#supporters">See supporters<svg class="icon"><use href="#arrow-down"></use></svg></a>
+			<a class="button yellow" href="{{ site.baseurl }}/contact/">Become a supporter</a>
+			<a class="button transparent" href="#articles">Read articles of association</a>
+		</div>
+		<div class="hero-cards">
+			<div class="card">
+				<div class="card-title">
+					<svg class="icon"><use href="#heart-hand"></use></svg>
+					<span>Owns the Duck Stack&rsquo;s IP</span>
+				</div>
+				<p>The non-profit Foundation holds the core intellectual property and trademarks of DuckDB, DuckLake and Quack projects.</p>
+			</div>
+			<div class="card">
+				<div class="card-title">
+					<svg class="icon"><use href="#codepen"></use></svg>
+					<span>MIT, irrevocably</span>
+				</div>
+				<p>DuckDB, DuckLake and Quack are, and will continue to be, distributed under the permissive MIT license.</p>
+			</div>
+			<div class="card">
+				<div class="card-title">
+					<svg class="icon"><use href="#code-square-01"></use></svg>
+					<span>Shape the roadmap</span>
+				</div>
+				<p>Supporters provide input into the development of DuckDB and related projects.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="foundation-supporters" id="supporters">
+	<div class="wrap">
+		<div class="section-header">
+			<h2 class="display-3">Supporters</h2>
+			<p>Organizations funding DuckDB&rsquo;s development through the Foundation, listed with their consent.</p>
+		</div>
+		<div class="supporter-grid">
+			<div class="supporter-column">
+				{% if site.data.supporters.gold %}
+				<div class="card supporterboard gold">
+					<div class="card-head">
+						<h3>Gold supporters</h3>
+						<span class="meta">&ge; &euro;100,000 / year</span>
+					</div>
+					<ul>
+						{% for supporter in site.data.supporters.gold %}
+						<li><a href="{{ supporter.url }}" aria-label="{{ supporter.name }}" title="{{ supporter.name }}"><span class="logo" style="-webkit-mask-image: url('{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}'); mask-image: url('{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}')"></span></a></li>
+						{% endfor %}
+					</ul>
+				</div>
+				{% endif %}
+				{% if site.data.supporters.technical %}
+				<div class="card supporterboard">
+					<div class="card-head">
+						<h3>Technical</h3>
+						<span class="meta">donated infrastructure &mdash; CDN, CI, hosting</span>
+					</div>
+					<ul>
+						{% for supporter in site.data.supporters.technical %}
+						<li><a href="{{ supporter.url }}" aria-label="{{ supporter.name }}" title="{{ supporter.name }}"><span class="logo" style="-webkit-mask-image: url('{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}'); mask-image: url('{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}')"></span></a></li>
+						{% endfor %}
+					</ul>
+				</div>
+				{% endif %}
+				{% if site.data.supporters.oss %}
+				<div class="card supporterboard">
+					<div class="card-head">
+						<h3>Open-source grants</h3>
+					</div>
+					<ul>
+						{% for supporter in site.data.supporters.oss %}
+						<li><a href="{{ supporter.url }}" aria-label="{{ supporter.name }}" title="{{ supporter.name }}"><span class="logo" style="-webkit-mask-image: url('{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}'); mask-image: url('{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}')"></span></a></li>
+						{% endfor %}
+					</ul>
+				</div>
+				{% endif %}
+			</div>
+			{% if site.data.supporters.silver %}
+			<div class="card supporterboard silver">
+				<div class="card-head">
+					<h3>Silver</h3>
+					<span class="meta">&ge; &euro;10,000 / year</span>
+				</div>
+				<ul>
+					{% for supporter in site.data.supporters.silver %}
+					<li><a href="{{ supporter.url }}" aria-label="{{ supporter.name }}" title="{{ supporter.name }}"><span class="logo" style="-webkit-mask-image: url('{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}'); mask-image: url('{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}')"></span></a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
+
+<section class="foundation-board">
+	<div class="wrap">
+		<div class="section-header">
+			<h2 class="display-3">Who runs it</h2>
+			<p>A three-person board composed of members with a database research background.</p>
+		</div>
+		<div class="board-cards">
+			<div class="card member">
+				<div class="portrait" style="background-image: url({{ site.baseurl }}/images/foundation_board/hannes_muehleisen.jpg)"></div>
+				<div class="member-head">
+					<span class="name">Hannes M&uuml;hleisen</span>
+					<span class="role">Chair<span class="divider">|</span>Co-creator of DuckDB</span>
+				</div>
+				<p>Co-created DuckDB at CWI Amsterdam in 2018. Former professor of data systems at Radboud University.</p>
+			</div>
+			<div class="card member">
+				<div class="portrait" style="background-image: url({{ site.baseurl }}/images/foundation_board/mark_raasveldt.jpg)"></div>
+				<div class="member-head">
+					<span class="name">Mark Raasveldt</span>
+					<span class="role">Board<span class="divider">|</span>Co-creator of DuckDB</span>
+				</div>
+				<p>Co-created DuckDB at CWI Amsterdam in 2018. Obtained his PhD in database systems at CWI&rsquo;s Database Architectures group.</p>
+			</div>
+			<div class="card member">
+				<div class="portrait" style="background-image: url({{ site.baseurl }}/images/foundation_board/peter_boncz.jpg)"></div>
+				<div class="member-head">
+					<span class="name">Peter Boncz</span>
+					<span class="role">Board<span class="divider">|</span>Database systems researcher</span>
+				</div>
+				<p>CWI researcher and professor at VU Amsterdam, architect of influential analytical database management systems.</p>
+			</div>
 		</div>
 	</div>
 </section>
 
 <section class="foundation-membership">
 	<div class="wrap">
-		<h2 class="section-title">Support Levels</h2>
-		<p class="section-lede">Join the DuckDB Foundation to support DuckDB's ongoing development and gain visibility for your organization.</p>
+		<div class="section-header">
+			<h2 class="display-3">Support DuckDB</h2>
+			<p>Membership funds the roadmap and gives your organization a voice in it.<br/>Dues are spent on development &mdash; all of them.</p>
+		</div>
 		<div class="levels">
-			<div class="level silver">
-				<div class="head">
+			<div class="card level">
+				<div class="card-head">
 					<h3>Silver</h3>
-					<p>Donations of 10,000 EUR and more</p>
+					<span class="meta">from &euro;10,000 / year</span>
 				</div>
-				<a href="{{ site.baseurl }}/contact/#silver"><div class="button arrow-right">Get in Touch<svg class="icon"><use href="#arrow-right"></use></svg></div></a>
+				<a class="button black" href="{{ site.baseurl }}/contact/#silver">Get in touch</a>
 				<ul>
-					<li><svg class="icon"><use href="#check-circle"></use></svg>DuckDB T-shirts for your team</li>
-					<li><svg class="icon"><use href="#check-circle"></use></svg>Logo displayed on the website</li>
+					<li><svg class="icon"><use href="#check-circle"></use></svg>Logo on duckdb.org and the Foundation page</li>
+					<li><svg class="icon"><use href="#check-circle"></use></svg>DuckDB t-shirts for your team</li>
 				</ul>
 			</div>
-			<div class="level gold">
-				<div class="head">
+			<div class="card level">
+				<div class="card-head">
 					<h3>Gold</h3>
-					<p>Donations of 100,000 EUR and more</p>
+					<span class="meta">from &euro;100,000 / year</span>
 				</div>
-				<a href="{{ site.baseurl }}/contact/#gold"><div class="button arrow-right">Get in Touch<svg class="icon"><use href="#arrow-right"></use></svg></div></a>
+				<a class="button yellow" href="{{ site.baseurl }}/contact/#gold">Get in touch</a>
 				<ul>
-					<li><svg class="icon"><use href="#check-circle"></use></svg>DuckDB hoodies for your team</li>
-					<li><svg class="icon"><use href="#check-circle"></use></svg>Prominently placed logo on website</li>
+					<li><svg class="icon"><use href="#check-circle"></use></svg>Prominent logo placement across DuckDB surfaces</li>
+					<li><svg class="icon"><use href="#check-circle"></use></svg>DuckDB t-shirts and hoodies for your team</li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </section>
 
-
-<section class="foundation-supporters">
+<section class="foundation-articles" id="articles">
 	<div class="wrap">
-		<h2 class="section-title" id="supporters">Supporters</h2>
-		<p class="section-lede">Current foundation supporters that have chosen to be publicly named.</p>
-
-		{% if site.data.supporters.gold %}
-		<div class="supporterboard gold">
-			<h3 id="gold-supporters">Gold Supporters</h3>
-			<ul>
-				{% for supporter in site.data.supporters.gold %}
-				<li><a href="{{ supporter.url }}"><img src="{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}" alt="{{ supporter.name }}"></a></li>
-				{% endfor %}
-			</ul>
+		<div class="section-header">
+			<h2 class="display-3">Articles of Association</h2>
+			<p>Stichting DuckDB Foundation is incorporated in the Netherlands.<br/>For the statutes of the Foundation, see the following document.</p>
 		</div>
-		{% endif %}
-
-		{% if site.data.supporters.silver %}
-		<div class="supporterboard silver">
-			<h3 id="silver-supporters">Silver Supporters</h3>
-			<ul>
-				{% for supporter in site.data.supporters.silver %}
-				<li><a href="{{ supporter.url }}"><img src="{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}" alt="{{ supporter.name }}"></a></li>
-				{% endfor %}
-			</ul>
-		</div>
-		{% endif %}
-
-		{% if site.data.supporters.technical %}
-		<div class="supporterboard technical">
-			<h3 id="technical-sponsors">Technical Sponsors</h3>
-			<ul>
-				{% for supporter in site.data.supporters.technical %}
-				<li><a href="{{ supporter.url }}"><img src="{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}" alt="{{ supporter.name }}"></a></li>
-				{% endfor %}
-			</ul>
-		</div>
-		{% endif %}
-
-		{% if site.data.supporters.oss %}
-		<div class="supporterboard technical">
-			<h3 id="open-source-grants">Open-Source Grants</h3>
-			<ul>
-				{% for supporter in site.data.supporters.oss %}
-				<li><a href="{{ supporter.url }}"><img src="{{ site.baseurl }}/images/foundation/{{ supporter.logoimg }}" alt="{{ supporter.name }}"></a></li>
-				{% endfor %}
-			</ul>
-		</div>
-		{% endif %}
-	</div>
-</section>
-
-
-<section class="foundation-board">
-	<div class="wrap">
-		<h2 class="section-title">Foundation Board</h2>
-		<div class="teammembers">
-			<div class="member">
-				<div class="portrait" style="background-image: url({{ site.baseurl }}/images/foundation_board/hannes_muehleisen.jpg)"></div>
-				<div class="info">
-					<span class="name">Hannes Mühleisen</span>
-				</div>
-			</div>
-			<div class="member">
-				<div class="portrait" style="background-image: url({{ site.baseurl }}/images/foundation_board/mark_raasveldt.jpg)"></div>
-				<div class="info">
-					<span class="name">Mark Raasveldt</span>
-				</div>
-			</div>
-			<div class="member">
-				<div class="portrait" style="background-image: url({{ site.baseurl }}/images/foundation_board/peter_boncz.jpg)"></div>
-				<div class="info">
-					<span class="name">Peter Boncz</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<section class="foundation-articles">
-	<div class="wrap">
-		<h2 class="section-title">Articles of Association</h2>
-		<p class="section-lede">Stichting DuckDB Foundation is incorporated in the Netherlands. For the statutes of the Foundation, see the following document.</p>
-
 		<div class="box-link-wrapper">
 			<div class="box-link half-width">
 				<a href="{{ site.baseurl }}/pdf/deed-of-incorporation-stichting-duckdb-foundation.pdf" target="_blank"></a>
-				<span class="symbol"><img src="{{ site.baseurl }}/images/icons/pdf.svg" alt="PDF"></span>
+				<span class="symbol"><svg class="icon"><use href="#file-06"></use></svg></span>
 				<span>Articles of Association (English)</span>
 				<svg class="chevron"><use href="#chevron-right"></use></svg>
 			</div>
