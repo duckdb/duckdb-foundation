@@ -1,0 +1,66 @@
+---
+layout: default
+title: Technical Advisory Board Application
+description: Apply to the DuckDB Foundation Technical Advisory Board.
+permalink: /technical-advisory-board-application/
+body_class: foundation contactform
+max_page_width: small
+---
+
+<section class="form">
+	<div class="wrap">
+		<div class="maincolumn">
+			<h1>Apply to the Technical Advisory Board</h1>
+			<div class="formwrap">
+				<form id="ajaxForm" action="https://formspree.io/f/xwlkrqdn" method="POST">
+					<input type="text" name="_gotcha" style="display:none" />
+					<div class="group halfsize">
+						<input type="text" name="firstname" required="required" />
+						<label>First Name <span class="req">*</span></label>
+					</div>
+					<div class="group halfsize">
+						<input type="text" name="lastname" required="required" />
+						<label>Last Name <span class="req">*</span></label>
+					</div>
+					<div class="group">
+						<input type="email" name="email" required="required" />
+						<label>Email address <span class="req">*</span></label>
+					</div>
+					<div class="group halfsize">
+						<input type="text" name="jobtitle" />
+						<label>Job title</label>
+					</div>
+					<div class="group halfsize">
+						<input type="text" name="employer" />
+						<label>Employer</label>
+					</div>
+					<div class="group custom-select">
+						<span class="select-label">Size of organization</span>
+						<div class="select-wrapper">
+							<select class="select-text" name="organizationsize">
+								<option value="" disabled selected>Select organization size</option>
+								<option value="1-10">1&ndash;10</option>
+								<option value="11-50">11&ndash;50</option>
+								<option value="51-200">51&ndash;200</option>
+								<option value="201-1000">201&ndash;1,000</option>
+								<option value="1000+">1,000+</option>
+							</select>
+							<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+						</div>
+					</div>
+					<div class="group">
+						<textarea name="message" rows="5" required="required"></textarea>
+						<label>Describe how you use DuckDB in production <span class="req">*</span></label>
+					</div>
+					<input type="hidden" name="subscribe" value="no">
+					<button type="submit" class="button yellow">Send</button>
+					<div class="legal">By submitting this form, you agree that DuckDB may contact you regarding your application.</div>
+					<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+					<div class="success">
+						<div>Thanks for your application! We will get in touch with you shortly.</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>

@@ -728,6 +728,16 @@ h5 a {
 				padding-top: 0;
 				height: 0;
 				overflow: hidden;
+				&.sticky{
+					position: sticky;
+					top: 69px;
+					z-index: 20;
+					background: var(--main-body-background-color, #FAFAFA);
+					box-shadow: 0 20px 20px -10px var(--main-body-background-color, #FAFAFA);
+					@media only screen and (max-width: 660px){
+						top: 53px;
+					}
+				}
 				iframe, object, embed{
 					position: absolute;
 					top: 0;
@@ -1184,6 +1194,10 @@ footer{
 		.scheduled + .venue{
 			margin-left: 0;
 		}
+	}
+	.newswrap .postwrap .infoline:has(.scheduled){
+		flex-wrap: wrap;
+		row-gap: 2px;
 	}
 	.infoline .scheduled,
 	.publishedinfo{
