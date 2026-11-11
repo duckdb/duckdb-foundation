@@ -3,15 +3,17 @@
 @use '../abstracts/mixins' as *;
 
 body.documentation #main_content_wrap,
-div.singleentry {
+body.layout_default #main_content_wrap,
+body.layout_default.blog_typography #main_content_wrap,
+.newswrap .postwrap .postcontent {
 	blockquote {
 		display: flex;
 		align-items: flex-start;
-		gap: 12px;
+		gap: 10px;
 		margin: 20px 0;
 		padding: 14px 12px;
 		border-radius: var(--page-radius-s, 6px);
-		border: 1px solid var(--doc-box-note-border, #E6E6E6);
+		border: 1px solid var(--border-color);
 		background: var(--doc-box-note, #F2F2F2);
 		position: relative;
 		@include body-small;
@@ -29,8 +31,13 @@ div.singleentry {
 		}
 
 		ul {
-			font-size: var(--type-body-small, 14px);
+			font-size: var(--type-body-small, 13px);
 			margin: 0.8em 0 0 0;
+		}
+
+		p code,
+		li code {
+			font-size: var(--type-code-small, 12px);
 		}
 
 		.sr-only + p,
@@ -60,14 +67,14 @@ div.singleentry {
 			width: 16px;
 			height: 16px;
 			margin-top: 2px;
-			color: var(--main-text-secondary-color, #666);
+			color: var(--main-text-secondary-color, #333333);
 
 			.icon {
 				display: block;
 				width: 16px;
 				height: 16px;
 				fill: none;
-				stroke-width: 2.4;
+				stroke-width: 2;
 			}
 		}
 
@@ -96,42 +103,70 @@ div.singleentry {
 			border-color: var(--doc-box-update-border, #ECD7C6);
 		}
 
+		&.new {
+			background: var(--doc-box-new, #FFFBE0);
+			border-color: var(--doc-box-new-border, #F3E88F);
+		}
+
 		&.quote {
-			display: block;
-			padding: 18px 20px;
-			border-radius: var(--page-radius-m, 10px);
-			background: var(--doc-codebox-background-color, #F2F2F2);
-			border-color: var(--doc-codebox-border-color, #E6E6E6);
+			--quote-size: var(--type-body-normal, 15px);
+			margin-block: 2rem;
+			padding: 0;
+			border: 0;
+			background: transparent;
+
+			&.quote-large {
+				--quote-size: var(--type-body-large, 22.5px);
+			}
 
 			p {
-				font-size: var(--type-body-normal, 16px);
-				line-height: 1.5;
+				font-size: var(--quote-size);
+				font-weight: 400;
+				line-height: 1.4;
+				color: var(--main-text-primary-color, #0D0D0D);
+			}
+
+			.quote-open {
+				position: relative;
+
+				&::before {
+					content: "“";
+					position: absolute;
+					inset-inline-end: 100%;
+				}
+			}
+
+			.quote-close::after {
+				content: "”";
 			}
 
 			p.quote-author {
-				@include body-small();
-				color: var(--main-text-secondary-color, #666);
-				margin-top: 20px;
+				@include body-small;
+				color: var(--main-text-secondary-color, #333333);
+				margin-top: 0.75rem;
+
+				img {
+					display: inline-block;
+					width: 18px;
+					height: 18px;
+					margin: 0 4px 0 0;
+					border-radius: 50%;
+					object-fit: cover;
+					vertical-align: middle;
+				}
 			}
 		}
 	}
 
 	.quote-slider {
 		$slide-width: 84%;
-		$peek-fade: 32px;
-
-		$fade-right: linear-gradient(to right, #000 0, #000 $slide-width, transparent 99%);
-		$fade-down: linear-gradient(to bottom, #000 0, #000 calc(100% - #{$peek-fade}), transparent 100%);
-		$peek-only: linear-gradient(to right, #000 0, #000 $slide-width, transparent $slide-width);
 
 		margin: 30px 0;
 
 		.swiper {
 			overflow: hidden;
-			-webkit-mask-image: $fade-right, $fade-down, $peek-only;
-			-webkit-mask-composite: source-in, source-over, source-over;
-			mask-image: $fade-right, $fade-down, $peek-only;
-			mask-composite: intersect, add, add;
+			-webkit-mask-image: linear-gradient(to right, #000 0, #000 $slide-width, transparent 99%);
+			mask-image: linear-gradient(to right, #000 0, #000 $slide-width, transparent 99%);
 		}
 
 		&.is-end .swiper {
@@ -147,13 +182,14 @@ div.singleentry {
 		blockquote.quote {
 			margin: 0;
 			height: 100%;
+			padding-inline-start: 0.75rem;
 		}
 	}
 
 	.quote-slider-controls {
-		display: none;
+		display: flex;
 		gap: 4px;
-		margin-bottom: 8px;
+		margin-top: 8px;
 
 		button {
 			display: flex;
@@ -162,7 +198,7 @@ div.singleentry {
 			padding: 0;
 			border: 0;
 			background: transparent;
-			color: var(--main-text-secondary-color, #666);
+			color: var(--main-text-secondary-color, #333333);
 			cursor: pointer;
 			transition: color .2s;
 
@@ -171,7 +207,7 @@ div.singleentry {
 			}
 
 			&.swiper-button-disabled {
-				color: var(--main-quaternary-color, #CCC);
+				color: var(--main-quaternary-color, #999999);
 				cursor: default;
 			}
 
@@ -183,5 +219,12 @@ div.singleentry {
 				stroke-width: 2;
 			}
 		}
+	}
+}
+
+div.singleentry,
+body.blog_typography #main_content_wrap {
+	blockquote .symbol {
+		margin-top: 4px;
 	}
 }
