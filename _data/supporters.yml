@@ -12,6 +12,10 @@ gold:
     logoimg: posit.svg
 
 silver:
+  - name: FloeDB
+    url: https://floedb.ai/
+    logoimg: floedb.svg
+
   - name: Mode
     url: https://mode.com
     logoimg: mode.svg
