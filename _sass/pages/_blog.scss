@@ -54,7 +54,7 @@ section.speakers,
 				position: absolute;
 				right: 0;
 				bottom: 0;
-				width: 130px;
+				width: 100px;
 				aspect-ratio: 1;
 				pointer-events: none;
 				img{
@@ -578,9 +578,20 @@ h5 a {
 					width: 100%;
 					height: 100%;
 				}
+				// native videos size themselves, so use their own aspect ratio
+				&:has(> video){
+					padding-bottom: 0;
+					height: auto;
+					video{
+						display: block;
+						width: 100%;
+						height: auto;
+					}
+				}
 			}
 			video{
 				max-width: 100%;
+				margin-top: 1rem;
 			}
 			.toc_sidebar{
 				position: fixed;
